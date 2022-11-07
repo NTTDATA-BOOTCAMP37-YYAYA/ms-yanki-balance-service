@@ -1,0 +1,31 @@
+server:
+  port: 5001
+spring:
+  application:
+    name: ms-yanki-balance-service
+ # config:
+  #  import: optional:configserver:http://ms-bank-config-server:8888
+  data: 
+    mongodb:
+     host: localhost
+     port: 27017
+     database: Yanki 
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+        group-id: myGroup
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+
+kafka:
+  topic:
+    balance:
+      create:
+        name: balance-create
+      update:
+        name: balance-update
